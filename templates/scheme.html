@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/values.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/values.js"></script>
+        <!-- JavaScript -->
+        <script>
+        function rgb(hex_colors, isTint, percentage) {
+            if (isTint.toLowerCase() === "true") {
+                return ((new Values(hex_colors)).tint(percentage)).hexString();
+            } else {
+                return ((new Values(hex_colors)).shade(percentage)).hexString();
+            }
+        }
+        function load(ids) {
+            var index = 0;
+            for (index = 0; index < ids.length; index++) {
+                var element = document.getElementById(ids[index]['id']);
+                // element.innerHtml.backgroundColor = rgb(ids[index]['color'], ids[index]['tint'], ids[index]['percentage']);
+            element.innerText = rgb(ids[index]['color'], ids[index]['tint'], ids[index]['percentage']);
+                element.style.backgroundColor = hex(ids[index]['color'], ids[index]['tint'], ids[index]['percentage']);
+            console.log(hex(ids[index]['color'], ids[index]['tint'], ids[index]['percentage']));
+            }
+        }
+        function hex(hex_colors, isTint, percentage) {
+            if (isTint.toLowerCase() === "true") {
+                return ((new Values(hex_colors)).tint(percentage)).rgbString();
+            } else {
+                return ((new Values(hex_colors)).shade(percentage)).rgbString();
+            }
+        }
+        jQuery(document).ready(function () {
+            console.log("load function called");
+
+        console.log(typeof "{{ primary }}");
+        var primary = "{{primary}}";
+            primary = primary.replaceAll("&#34;", "\"");
+            primary=JSON.parse(primary);
+            console.log(primary) ;
+            load(primary) ;
+
+        console.log(typeof "{{ secondary }}");
+        var secondary = "{{secondary}}";
+            secondary = secondary.replaceAll("&#34;", "\"");
+            secondary=JSON.parse(secondary);
+            console.log(secondary) ;
+            load(secondary) ;
+
+        console.log(typeof "{{ tertiary }}");
+        var tertiary = "{{tertiary}}";
+            tertiary = tertiary.replaceAll("&#34;", "\"");
+            tertiary=JSON.parse(tertiary);
+            console.log(tertiary) ;
+            load(tertiary) ;
+
+        console.log(typeof "{{ error }}");
+        var error = "{{error}}";
+            error = error.replaceAll("&#34;", "\"");
+            error=JSON.parse(error);
+            console.log(error) ;
+            load(error) ;
+        });
+
+        </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="icon" href="" type="image/png">
+    <title>Material You</title>
+</head>
+<!-- CSS -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:,wght@1,400&display=swap');
+:root {
+  --header-height:3rem;
+  /*========== Colors ==========*/
+  --first-color: #dde3ea;
+  --first-color-alt: #f1f8fe;
+  --first-color-dark: #0c0036;
+  --container-color:#c4e1e9;;
+}
+body{
+    background-color:#f8f8f8;
+}
+.navbar{
+    display: flex;
+    height:auto;
+}
+.nav-item{
+    background-color: var(--first-color-alt);
+    color:var(--first-color-dark);
+    border-radius: 2rem;
+    padding:0.5rem;
+    padding-left:1rem;
+    padding-right:1rem;
+    margin:0.5rem 0.5rem 0.5rem 0.5rem ;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+.section {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-title,
+.section-subtitle {
+  text-align: center;
+}
+.section-title {
+  font-size:xx-large;
+  font-weight: 600;
+  border-radius: 3rem;
+  background-color: var(--first-color-alt);
+  margin-bottom: var(--mb-3);
+  color:var(--first-color-dark);
+  align-items:center;
+  padding:1rem;
+  justify-items: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+}
+.section-subtitle {
+  display: block;
+  color:var(--first-color-dark);
+  font-weight: 400;
+  margin-bottom: var(--mb-1);
+  font-family: 'Roboto', sans-serif;
+}
+.container{
+    width:fit-content;
+    height:100vh;
+    padding:1rem;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+    align-items: left;
+    align-content: left;
+    background-color: #fff;
+    margin-top:1rem;
+    margin-bottom: 3rem;
+}
+.logo{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form{
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: auto; 
+}
+.new_lbl{
+    border-radius:1rem; 
+    background-color:var(--first-color-alt);
+    color:var(--first-color-dark);
+    justify-self: center;
+    margin-left: 25%;
+    margin-right: auto;
+    padding:1rem; 
+    border:none;
+    font-weight: 400;
+    font-size: medium;
+    font-family: 'Roboto', sans-serif;}
+
+#display_image{
+    width:800px;
+    height:800px;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 0rem;
+    border: 1px dashed black;
+    background-position: center;
+    border-radius: 0.5rem;
+    background-size: cover;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-image:url(image.jpg);
+    background-size: cover;
+    }
+.show_color{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    padding:0.5rem;
+    margin-top: 1%;
+    margin-bottom:1%;
+    margin-left:0;
+    width: auto;
+    height: 500px;
+    border-radius:3rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: medium;
+    font-family: 'Roboto', sans-serif;
+    }
+.box{
+    width:10px;
+    height:80px;
+    padding:0.3rem;
+    text-align:center;
+    border-radius:0.1rem;
+    }
+.head{
+    width:10px;
+    height:50px;
+    background-color: var(--first-color-alt);
+    border-radius:1rem;
+    align-items:center;
+    padding:0.3rem;
+    text-align: center;
+}
+.new_lbl1{
+    border-radius:1rem; 
+    background-color:var(--first-color-alt);
+    color:var(--first-color-dark);
+    justify-self: center;
+    width:100px;
+    line-height:1rem;
+
+    /* margin-right: 20%; */
+    padding:1rem; 
+    border:none;
+    font-weight: 400;
+    font-size: medium;
+    font-family: 'Roboto', sans-serif;}
+.new_lbl1:hover{
+    background-color:rgb(1, 1, 65);
+    color:#f1f8fe;
+}
+</style>
+<!-- HTML  ' -->
+<body>
+    <nav class="navbar">
+        <h3 class="nav-item" style='margin-right:85%;'>SRDdev</h3>
+        <button herf="https://srddev.github.io" class="nav-item">Website</button>
+        <!-- <a href="https://srddev.github.io"><h3 class="nav-item"></h3></a> -->
+    </nav>
+    <section class="section">
+        <div class="container">
+            <!-- <div class="section-subtitle"></div><br> -->
+            <div class="section-title"><img src="https://img.icons8.com/color/28/000000/color-palette.png"/> Material You</div>
+            <br><br>
+            <table class="show_color">
+                <tr>
+                  <td id="colours_primary_0" class="box" style="border-radius: 1rem 0rem 0rem 0rem;"></td>
+                  <td id="colours_primary_1" class="box"></td>
+                  <td id="colours_primary_2" class="box"></td>
+                  <td id="colours_primary_3" class="box"></td>
+                  <td id="colours_primary_4" class="box"></td>
+                  <td id="colours_primary_5" class="box"></td>
+                  <td id="colours_primary_6" class="box"></td>
+                  <td id="colours_primary_7" class="box"></td>
+                  <td id="colours_primary_8" class="box"></td>
+                  <td id="colours_primary_9" class="box"></td>
+                  <td id="colours_primary_10" class="box"></td>
+                  <td id="colours_primary_11" class="box"></td>
+                  <td id="colours_primary_12" class="box"></td>
+                  <td id="colours_primary_13" class="box"></td>
+                  <td id="colours_primary_14" class="box"></td>
+                  <td id="colours_primary_15" class="box"></td>
+                  <td id="colours_primary_16" class="box"></td>
+                  <td id="colours_primary_17" class="box"></td>
+                  <td id="colours_primary_18" class="box"></td>
+                  <td id="colours_primary_19" class="box"  style="border-radius: 0rem 1rem 0rem 0rem;"></td>
+                </tr>
+                <tr>
+                  <!-- <td class="head">SECONDARY</td> -->
+                  <td id="colours_secondary_0" class="box"></td>
+                  <td id="colours_secondary_1" class="box"></td>
+                  <td id="colours_secondary_2" class="box"></td>
+                  <td id="colours_secondary_3" class="box"></td>
+                  <td id="colours_secondary_4" class="box"></td>
+                  <td id="colours_secondary_5" class="box"></td>
+                  <td id="colours_secondary_6" class="box"></td>
+                  <td id="colours_secondary_7" class="box"></td>
+                  <td id="colours_secondary_8" class="box"></td>
+                  <td id="colours_secondary_9" class="box"></td>
+                  <td id="colours_secondary_10" class="box"></td>
+                  <td id="colours_secondary_11" class="box"></td>
+                  <td id="colours_secondary_12" class="box"></td>
+                  <td id="colours_secondary_13" class="box"></td>
+                  <td id="colours_secondary_14" class="box"></td>
+                  <td id="colours_secondary_15" class="box"></td>
+                  <td id="colours_secondary_16" class="box"></td>
+                  <td id="colours_secondary_17" class="box"></td>
+                  <td id="colours_secondary_18" class="box"></td>
+                  <td id="colours_secondary_19" class="box"></td>
+          
+                  </tr>
+                <tr>
+                  <!-- <td class="head">TERTIARY</td> -->
+                  <td id="colours_tertiary_0" class="box"></td>
+                  <td id="colours_tertiary_1" class="box"></td>
+                  <td id="colours_tertiary_2" class="box"></td>
+                  <td id="colours_tertiary_3" class="box"></td>
+                  <td id="colours_tertiary_4" class="box"></td>
+                  <td id="colours_tertiary_5" class="box"></td>
+                  <td id="colours_tertiary_6" class="box"></td>
+                  <td id="colours_tertiary_7" class="box"></td>
+                  <td id="colours_tertiary_8" class="box"></td>
+                  <td id="colours_tertiary_9" class="box"></td>
+                  <td id="colours_tertiary_10" class="box"></td>
+                  <td id="colours_tertiary_11" class="box"></td>
+                  <td id="colours_tertiary_12" class="box"></td>
+                  <td id="colours_tertiary_13" class="box"></td>
+                  <td id="colours_tertiary_14" class="box"></td>
+                  <td id="colours_tertiary_15" class="box"></td>
+                  <td id="colours_tertiary_16" class="box"></td>
+                  <td id="colours_tertiary_17" class="box"></td>
+                  <td id="colours_tertiary_18" class="box"></td>
+                  <td id="colours_tertiary_19" class="box"></td>
+                </tr>
+                <tr>
+                  <!-- <td class="head">ERROR</td> -->
+                  <td id="colours_error_0"class="box"  style="border-radius: 0rem 1rem 0rem 0rem;"></td>
+                  <td id="colours_error_1" class="box"></td>
+                  <td id="colours_error_2" class="box"></td>
+                  <td id="colours_error_3"class="box"></td>
+                  <td id="colours_error_4"class="box"></td>
+                  <td id="colours_error_5" class="box"></td>
+                  <td id="colours_error_6" class="box"></td>
+                  <td id="colours_error_7"class="box"></td>
+                  <td id="colours_error_8"class="box"></td>
+                  <td id="colours_error_9" class="box"></td>
+                  <td id="colours_error_10" class="box"></td>
+                  <td id="colours_error_11"class="box"></td>
+                  <td id="colours_error_12"class="box"></td>
+                  <td id="colours_error_13" class="box"></td>
+                  <td id="colours_error_14" class="box"></td>
+                  <td id="colours_error_15"class="box"></td>
+                  <td id="colours_error_16"class="box"></td>
+                  <td id="colours_error_17" class="box"></td>
+                  <td id="colours_error_18" class="box"></td>
+                  <td id="colours_error_19"class="box" style="border-radius: 0rem 0rem 1rem 0rem;"></td>
+                </tr>
+              </table>
+        </div>
+        <div class="info">
+          <div class="container"style="display:flex;flex-direction:row;justify-content:space-around;height:fit-content;width:500px;;">
+              <form action="http://localhost:8080/home">
+                  <button class="new_lbl1" type="submit">Color Palette</button>
+              </form>
+              <form action="http://localhost:8080/">
+                  <button class="new_lbl1" type="submit">Home</button>
+              </form>
+              <form action="http://localhost:8080/scheme">
+                  <button class="new_lbl1" type="submit">Extract Shades</button>
+              </form>
+          </div>
+      </div>
+        <p class="section-subtitle">Project by Shreyas Dixit</p>
+    </section>
+</body>
+<!-- JS -->
+<script>
+    const image_input = document.querySelector("#image_input");
+image_input.addEventListener("change", function () {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    const uploaded_image = reader.result;
+    document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
+  });
+  reader.readAsDataURL(this.files[0]);
+});
+</script>
+</html>

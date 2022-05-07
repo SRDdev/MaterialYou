@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="icon" href="templates\logo.jpg">
+    <title>Material You</title>
+</head>
+<!-- CSS -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:,wght@1,400&display=swap');
+:root {
+  --header-height:3rem;
+  /*========== Colors ==========*/
+  --first-color: #dde3ea;
+  --first-color-alt: #f1f8fe;
+  --first-color-dark: #0c0036;
+  --container-color:#c4e1e9;;
+}
+body{
+    background-color:#f8f8f8;
+}
+.navbar{
+    display: flex;
+    height:auto;
+}
+.nav-item{
+    background-color: var(--first-color-alt);
+    color:var(--first-color-dark);
+    border-radius: 2rem;
+    padding:0.5rem;
+    padding-left:1rem;
+    padding-right:1rem;
+    margin:0.5rem 0.5rem 0.5rem 0.5rem ;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    border: none;
+}
+.section {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  height:1100px;
+}
+.section-title,
+.section-subtitle {
+  text-align: center;
+}
+.section-title {
+  font-size:xx-large;
+  font-weight: 600;
+  border-radius: 3rem;
+  background-color: var(--first-color-alt);
+  margin-bottom: var(--mb-3);
+  color:var(--first-color-dark);
+  align-items:center;
+  padding:1rem;
+  justify-items: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+}
+.section-subtitle {
+  display: block;
+  color:var(--first-color-dark);
+  font-weight: 400;
+  margin-bottom: var(--mb-1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+}
+.container{
+    width:100vh;
+    height:auto;
+    padding:1rem;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    margin-top:1rem;
+    margin-bottom: 3rem;
+}
+.logo{
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form{
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: auto; 
+}
+.new_lbl{
+    border-radius:1rem; 
+    background-color:var(--first-color-alt);
+    color:var(--first-color-dark);
+    justify-self: center;
+    margin-left: 20%;
+    margin-right: auto;
+    padding:1rem; 
+    border:none;
+    font-weight: 600;
+    font-size: large;
+    font-family: 'Roboto', sans-serif;}
+
+.img{
+    max-width:100%;
+    max-height:100%;
+}
+
+#display_image{
+    width:800px;
+    height:800px;
+    max-width:400px;
+    max-height:400px;
+    border-radius: 0rem;
+    border: 0.5px dashed black;
+    background-position: center;
+    border-radius: 0.5rem;
+    background-size: cover;
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-image:url(image.jpg);
+    background-size: cover;
+    }
+.info{
+    display: flex;
+    flex-direction: row;
+    padding:2rem;
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    }
+.new_lbl1{
+    border-radius:1rem; 
+    background-color:var(--first-color-alt);
+    color:var(--first-color-dark);
+    justify-self: center;
+    width:100px;
+    line-height:1rem;
+
+    /* margin-right: 20%; */
+    padding:1rem; 
+    border:none;
+    font-weight: 400;
+    font-size: medium;
+    font-family: 'Roboto', sans-serif;}
+.new_lbl1:hover{
+    background-color:rgb(1, 1, 65);
+    color:#f1f8fe;
+}
+</style>
+<!-- HTML -->
+<body>
+    <nav class="navbar">
+        <h3 class="nav-item" style='margin-right:85%;padding:1rem;'>SRDdev</h3>
+        <a href="https://srddev.github.io"><button class="nav-item"style="padding:1rem;  font-family: 'Roboto', sans-serif;">Website</button></a> 
+    </nav>
+    <section class="section">
+        <div class="container"><br>
+            <div class="section-subtitle"><img src="https://img.icons8.com/color/96/000000/color-palette.png"/></div><br>
+            <div class="section-title">Color Palette</div>
+            <div class="section-subtitle"><p> Extract colors from image & Generate a Color Palette</p></div><br><br><br>
+            <!-- <div class="section-subtitle">This simple color palette generator extracts colors from any photo or file on upload. Then just copy the HEX codes from the color palette app with a simple click!</div> -->
+            <div class="form">
+                <form action="http://localhost:8080/predict" method="post" enctype="multipart/form-data" key="file">
+                    <input  class="section-subtitle" type="file" id="image_input" name="file"><br>
+                    <div id="display_image" class="display"></div><br>
+                    <button type="submit" class="new_lbl1"style="margin-left:22%;">Color Palette</button><br>
+                </form>
+            </div>
+        </div>
+        <div class="info">
+            <div class="container"style="display:flex;flex-direction:row;justify-content:space-around;">
+                <form action="http://localhost:8080/home">
+                    <button class="new_lbl1" type="submit">Color Palette</button>
+                </form>
+                <form action="http://localhost:8080/">
+                    <button class="new_lbl1" type="submit">Home</button>
+                </form>
+                <form action="http://localhost:8080/scheme">
+                    <button class="new_lbl1" type="submit">Extract Shades</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+<!-- JS -->
+<script>
+    const image_input = document.querySelector("#image_input");
+image_input.addEventListener("change", function () {
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    const uploaded_image = reader.result;
+    document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
+  });
+  reader.readAsDataURL(this.files[0]);
+});
+</script>
+</html>
