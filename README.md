@@ -20,37 +20,6 @@ It takes your image and uses K-NN Clustering(an Machine-Learning ALgorithm) to e
 Then all these colors are displayed to you in your Browser.
 
 
-
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/SRDdev/Material-You.git
-```
-
-Go to the project directory
-```bash
-  cd Material-You
-```
-
-Install dependencies
-```bash
-  pip install requirements.txt
-```
-```bash
-  npm install Values.js
-```
-
-Start the server
-```bash
-  run main.py
-```
-Go to your browser & follow the link
-```bash
-  http://localhost:8000/
-```
-
 ## Features
 
 - Extract 4 prominant colors from the image
