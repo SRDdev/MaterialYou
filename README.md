@@ -75,7 +75,3 @@ We welcome contributions from the open-source community. If you'd like to contri
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
-
----
-
-This expanded README provides a more comprehensive overview of your project and makes it easier for users and potential contributors to understand and use your Material You Color Extractor tool.
